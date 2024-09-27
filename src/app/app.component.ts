@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { ArticleComponent } from "./article/article.component";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Article } from './models/article';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ import { CommonModule } from '@angular/common';
 export class AppComponent {
   title = 'Bienvenue sur le Wild Blog de Lucy !';
 
-  articles = [
+  articles: Article[] = [
     {
       title: 'Angular 16: Les nouveautés',
       author: 'Alice',
