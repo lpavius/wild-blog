@@ -1,15 +1,18 @@
-<div class="card">
+
   @for (article of articles; track $index) {
+
     @if (article.isPublished) {
-      <div [ngClass]="{'popular-article': article.likes > 100}">
-        <h2 class="card-title" [ngStyle]="{'color': article.likes >= 150 ? 'green' : 'black'}" >{{article.title}}</h2>
-        <img [src]="article.image" alt="">
-        <p class="card-content" >{{article.content}}</p>
-        <p><em>Auteur: </em>{{article.author}}</p>
-      </div>
-      <div>
-        <input [(ngModel)]="article.comment" placeholder="Ecris ton commentaire ...">
-        <p>Ton Commentaire : <span>{{article.comment}}</span></p>
+      <div class="card">
+        <div [ngClass]="{'popular-article': article.likes > 100}">
+          <h2 class="card-title" [ngStyle]="{'color': article.likes >= 150 ? 'green' : 'black'}" >{{article.title}}</h2>
+          <img [src]="article.image" alt="">
+          <p class="card-content" >{{article.content}}</p>
+          <p><em>Auteur: </em>{{article.author}}</p>
+        </div>
+        <div>
+          <input [(ngModel)]="article.comment" placeholder="Ecris ton commentaire ...">
+          <p>Ton Commentaire : <span>{{article.comment}}</span></p>
+        </div>
       </div>
     }
   } @empty {
@@ -17,4 +20,3 @@
       <h2 class="card-title">Aucun article publié pour le moment</h2>
     </div>
   }
-</div>
