@@ -4,11 +4,12 @@ import { ArticleComponent } from "./article/article.component";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Article } from './models/Article';
+import { ArticlePageComponent } from './article-page/article-page.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ArticleComponent, FormsModule, CommonModule],
+  imports: [RouterOutlet, ArticleComponent, FormsModule, CommonModule, ArticlePageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -17,6 +18,7 @@ export class AppComponent {
 
   articles: Article[] = [
     {
+      id: 1,
       title: 'Angular 16: Les nouveautés',
       author: 'Alice',
       content: 'Les nouveautés d\'Angular 16 incluent...',
@@ -26,6 +28,7 @@ export class AppComponent {
       likes: 120
     },
     {
+      id: 2,
       title: 'Développer une API REST',
       author: 'Bob',
       content: 'Développer une API REST nécessite...',
@@ -35,6 +38,7 @@ export class AppComponent {
       likes: 75
     },
     {
+      id: 3,
       title: 'Pourquoi TypeScript est essentiel ?',
       author: 'Charlie',
       content: 'TypeScript apporte de la robustesse...',
