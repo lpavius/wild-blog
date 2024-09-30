@@ -1,19 +1,16 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { ArticleComponent } from "./article/article.component";
-import { FormsModule } from '@angular/forms';
+import { Article } from '../models/Article';
 import { CommonModule } from '@angular/common';
-import { Article } from './models/Article';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-home-page',
   standalone: true,
-  imports: [RouterOutlet, ArticleComponent, FormsModule, CommonModule],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  imports: [CommonModule, FormsModule],
+  templateUrl: './home-page.component.html',
+  styleUrl: './home-page.component.scss'
 })
-export class AppComponent {
-  title = 'Bienvenue sur le Wild Blog de Lucy !';
+export class HomePageComponent {
 
   articles: Article[] = [
     {
