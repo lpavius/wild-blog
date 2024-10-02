@@ -30,6 +30,30 @@
       }
     </div>
 
+    <div formGroupName="passwords">
+      <div class="input-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" formControlName="password">
+        @if (signUpForm.get('passwords.password')?.invalid && signUpForm.get('passwords.password')?.touched) {
+          <div>
+            @if (signUpForm.get('passwords.password')?.errors?.['required']) {
+              <span>Le mot de passe est requis.</span>
+            }
+            @if (signUpForm.get('passwords.password')?.errors?.['securePassword']) {
+              <span> Le mot de passe doit contenir au moins 12 caractères, avec une majuscule, une minuscule, un chiffre, et un caractère spécial.</span>
+            }
+          </div>
+        }
+      </div>
+      <div class="input-group">
+        <label for="confirmPassword">Confirmer le mot de passe</label>
+        <input type="password" id="confirmPassword" formControlName="confirmPassword">
+        @if (signUpForm.get('passwords')?.errors?.['passwordsMismatch'] && signUpForm.get('passwords')?.touched) {
+          <span>Les mots de passe ne correspondent pas.</span>
+        }
+      </div>
+    </div>
+
     <button type="submit" [disabled]="signUpForm.invalid">S'inscrire</button>
   </form>
 </div>
