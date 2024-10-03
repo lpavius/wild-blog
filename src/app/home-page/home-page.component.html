@@ -1,5 +1,5 @@
 @for (article of articles; track $index) {
-  <app-article [article]="articles[0]"/>
+  <app-article [article]="article"/>
   <!-- @if (article.isPublished) {
 
     <div class="card" [ngClass]="{'popular-article': article.likes > 100}" (click)="goToArticlePage(article.id)">
