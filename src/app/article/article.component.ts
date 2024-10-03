@@ -1,14 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-interface Article {
-  title: string
-  author: string
-  content: string
-  image: string
-  isPublished: true | false
-  comment: string
-}
+import { Article } from '../models/Article';
 
 @Component({
   selector: 'app-article',
@@ -19,14 +11,8 @@ interface Article {
 })
 
 export class ArticleComponent {
-  article: Article = {
-    title: 'Bienvenue !',
-    author: 'Lucy',
-    content: 'Je ne sais pas encore de quoi va parler ce Blog.',
-    image: 'https://via.placeholder.com/350x150',
-    isPublished: true,
-    comment: ''
-  }
+
+  @Input() article!: Article
 
   togglePublication(): void {
     this.article.isPublished = !this.article.isPublished;

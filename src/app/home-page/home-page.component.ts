@@ -3,11 +3,12 @@ import { Article } from '../models/Article';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ArticleComponent } from '../article/article.component';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ArticleComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
