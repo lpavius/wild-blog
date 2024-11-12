@@ -22,7 +22,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 export class AppComponent {
   title = 'Bienvenue sur le Wild Blog de Lucy !';
 
-  articles: Article[] = [
+  /*articles: Article[] = [
     {
       id: 1,
       title: 'Angular 16: Les nouveautés',
@@ -53,6 +53,6 @@ export class AppComponent {
       comment: '',
       likes: 200
     }
-  ];
+  ];*/
 
 }

@@ -1,5 +1,5 @@
 @for (article of articles; track $index) {
-  <app-article [article]="article"></app-article>
+  <app-article [article]="article" (notifyLike)="handleLike(article)"></app-article>
 } @empty {
   <div>
     <h2 class="card-title">Aucun article publié pour le moment</h2>

@@ -7,4 +7,5 @@ export interface Article {
       isPublished: boolean
       comment: string
       likes: number
+      isLiked: boolean
 }

@@ -25,7 +25,8 @@ export class HomePageComponent {
       image: 'https://via.placeholder.com/350x150',
       isPublished: true,
       comment: '',
-      likes: 120
+      likes: 120,
+      isLiked: false
     },
     {
       id: 2,
@@ -35,7 +36,8 @@ export class HomePageComponent {
       image: 'https://via.placeholder.com/350x150',
       isPublished: false,
       comment: '',
-      likes: 75
+      likes: 75,
+      isLiked: false
     },
     {
       id: 3,
@@ -45,12 +47,17 @@ export class HomePageComponent {
       image: 'https://via.placeholder.com/350x150',
       isPublished: true,
       comment: '',
-      likes: 200
+      likes: 200,
+      isLiked: false
     }
   ];
 
   goToArticlePage(articleId: number) {
     this.router.navigate(['/article', articleId])
+  }
+
+  handleLike(article: Article) {
+    article.isLiked = !article.isLiked;
   }
 
 }
