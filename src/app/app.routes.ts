@@ -8,7 +8,6 @@ import { ArticleComponent } from './article/article.component';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'article', component: ArticleComponent },
   { path: 'article/:id', component: ArticlePageComponent },
   { path: 'contact', component: ContactFormComponent },
   { path: 'signup', component: SignupFormComponent },

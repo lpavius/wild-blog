@@ -12,7 +12,7 @@ import { Article } from '../models/Article';
 
 export class ArticleComponent {
 
-  @Input() article!: Article
+  @Input() article!: Article;
 
   togglePublication(): void {
     this.article.isPublished = !this.article.isPublished;
