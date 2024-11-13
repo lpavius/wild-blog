@@ -1,4 +1,4 @@
-@for (article of articles; track $index) {
+@for (article of articles$ | async; track $index) {
   <app-article [article]="article" (notifyLike)="handleLike(article)"></app-article>
 } @empty {
   <div>

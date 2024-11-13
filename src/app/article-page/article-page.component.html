@@ -1,1 +1,3 @@
-<h2>ID: {{ articleId }}</h2>
+@if (article$ | async; as article) {
+  <app-article [article]="article"></app-article>
+}

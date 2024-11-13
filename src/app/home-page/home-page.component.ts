@@ -4,19 +4,24 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ArticleComponent } from '../article/article.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [CommonModule, FormsModule, ArticleComponent],
+  imports: [CommonModule, FormsModule, ArticleComponent, HttpClientModule],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent {
 
-  router: Router = inject(Router);
+  articles$!: Observable<Article[]>;
 
-  articles: Article[] = [
+  private router: Router = inject(Router);
+  private http: HttpClient = inject(HttpClient);
+
+  /*articles: Article[] = [
     {
       id: 1,
       title: 'Angular 16: Les nouveautés',
@@ -50,7 +55,15 @@ export class HomePageComponent {
       likes: 200,
       isLiked: false
     }
-  ];
+  ];*/
+
+  ngOnInit() {
+    this.articles$ = this.getArticles();
+  }
+
+  getArticles(): Observable<Article[]> {
+    return this.http.get<Article[]>('http://localhost:3000/articles');
+  }
 
   goToArticlePage(articleId: number) {
     this.router.navigate(['/article', articleId])
