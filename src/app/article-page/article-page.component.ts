@@ -5,11 +5,13 @@ import { Article } from '../models/Article';
 import { Observable } from 'rxjs';
 import { ArticleComponent } from '../article/article.component';
 import { CommonModule } from '@angular/common';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-article-page',
   standalone: true,
   imports: [HttpClientModule, ArticleComponent, CommonModule],
+  providers: [ApiService],
   templateUrl: './article-page.component.html',
   styleUrl: './article-page.component.scss'
 })
@@ -20,6 +22,7 @@ export class ArticlePageComponent {
 
   private route: ActivatedRoute = inject(ActivatedRoute);
   private http: HttpClient = inject(HttpClient);
+  private apiService: ApiService = inject(ApiService);
 
 
   ngOnInit() {
@@ -32,7 +35,7 @@ export class ArticlePageComponent {
   }
 
   getArticleById(id: number): Observable<Article> {
-    return this.http.get<Article>(`http://localhost:3000/articles/${id}`);
+    return this.apiService.getArticleById(id);
   }
 
 }
