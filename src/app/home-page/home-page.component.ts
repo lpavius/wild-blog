@@ -4,15 +4,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ArticleComponent } from '../article/article.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [CommonModule, FormsModule, ArticleComponent, HttpClientModule],
-  providers: [ApiService],
+  imports: [CommonModule, FormsModule, ArticleComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })

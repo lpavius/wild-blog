@@ -1,4 +1,3 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Article } from '../models/Article';
@@ -10,8 +9,7 @@ import { ApiService } from '../services/api.service';
 @Component({
   selector: 'app-article-page',
   standalone: true,
-  imports: [HttpClientModule, ArticleComponent, CommonModule],
-  providers: [ApiService],
+  imports: [ArticleComponent, CommonModule],
   templateUrl: './article-page.component.html',
   styleUrl: './article-page.component.scss'
 })
@@ -21,7 +19,6 @@ export class ArticlePageComponent {
   article$!: Observable<Article>;
 
   private route: ActivatedRoute = inject(ActivatedRoute);
-  private http: HttpClient = inject(HttpClient);
   private apiService: ApiService = inject(ApiService);
 
 
